@@ -1,0 +1,65 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+a = 10
+>>> a
+10
+>>> a < 10
+False
+>>> a > 2
+True
+>>> if a < 10:
+print("May be single digit")
+SyntaxError: expected an indented block
+>>> if a < 10:
+	print("May be single digit")
+
+	
+>>> if a < 10:
+	print("May be single digit")
+else:
+	print("May be double digit")
+
+	
+May be double digit
+>>> if a < 10:
+	print("May be single digit")
+elif a < 100:
+	print("May be double digit")
+else:
+	print("2+ digits")
+
+	
+May be double digit
+>>> x = 3
+>>> x > 2 and x < 10
+True
+>>> x > 100 or x < 10
+True
+>>> x > 2
+True
+>>> not x > 2
+False
+>>> x > 2 and x < 10
+True
+>>> 2 < x < 10
+True
+>>> # condition chaining
+>>> y = 6
+>>> x > 2 and x < y and y < 20
+True
+>>> 2 < x < y < 20
+True
+>>> li = ['India','US','Canada']
+>>> 'US' in li
+True
+>>> s = 'Hello World'
+>>> 'World' in s
+True
+>>> s
+'Hello World'
+>>> s.replace(' ','')
+'HelloWorld'
+>>> s.replace('l','L')
+'HeLLo WorLd'
+>>> 
