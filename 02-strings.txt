@@ -1,0 +1,131 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> s = 'Hello'
+>>> s + ' World'
+'Hello World'
+>>> s
+'Hello'
+>>> s = s + ' World'
+>>> s
+'Hello World'
+>>> s.upper()
+'HELLO WORLD'
+>>> s
+'Hello World'
+>>> s.lower()
+'hello world'
+>>> s.count('o')
+2
+>>> type(s)
+<class 'str'>
+>>> a= 10
+>>> a.upper()
+Traceback (most recent call last):
+  File "<pyshell#11>", line 1, in <module>
+    a.upper()
+AttributeError: 'int' object has no attribute 'upper'
+>>> s = '    hello    '
+>>> s.strip()
+'hello'
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> s
+'    hello    '
+>>> s = 'Hello World'
+>>> # sequence of items
+>>> a = 'c'
+>>> type(a)
+<class 'str'>
+>>> s[0]
+'H'
+>>> s[1]
+'e'
+>>> len(s)
+11
+>>> s[10]
+'d'
+>>> s[11]
+Traceback (most recent call last):
+  File "<pyshell#28>", line 1, in <module>
+    s[11]
+IndexError: string index out of range
+>>> s[-1]
+'d'
+>>> s[-11]
+'H'
+>>> s[-12]
+Traceback (most recent call last):
+  File "<pyshell#31>", line 1, in <module>
+    s[-12]
+IndexError: string index out of range
+>>> 
+>>> 
+>>> s
+'Hello World'
+>>> #slicing
+>>> s[0:4]
+'Hell'
+>>> s[0:5]
+'Hello'
+>>> 
+>>> s[6:10]
+'Worl'
+>>> 
+>>> s[-1:-3]
+''
+>>> s[-5:-10]
+''
+>>> s[-10:-5]
+'ello '
+>>> s[-10:7]
+'ello W'
+>>> s[-1:5]
+''
+>>> s[3:-1]
+'lo Worl'
+>>> s
+'Hello World'
+>>> 
+>>> s[0:5:1]
+'Hello'
+>>> s[0:5:2]
+'Hlo'
+>>> s[-1:5:-1]
+'dlroW'
+>>> s[-1:-10]
+''
+>>> s[-1:-10:-1]
+'dlroW oll'
+>>> s
+'Hello World'
+>>> s[-1:-11:-1]
+'dlroW olle'
+>>> s[-1:-12:-1]
+'dlroW olleH'
+>>> s[5:100]
+' World'
+>>> s[-1:-len(s)-1:-1]
+'dlroW olleH'
+>>> s="Hope lives on to let you hope"
+>>> s[-1:-len(s)-1:-1]
+'epoh uoy tel ot no sevil epoH'
+>>> s[5:100]
+'lives on to let you hope'
+>>> s[5:]
+'lives on to let you hope'
+>>> s[0:5]
+'Hope '
+>>> s[:5]
+'Hope '
+>>> s[:]
+'Hope lives on to let you hope'
+>>> s[::]
+'Hope lives on to let you hope'
+>>> s[::-1]
+'epoh uoy tel ot no sevil epoH'
+>>> s[-1:-len(s)-1:-1]
+'epoh uoy tel ot no sevil epoH'
+>>> 
