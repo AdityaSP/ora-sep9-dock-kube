@@ -1,0 +1,135 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> s = 'Hope lives on to let you hope'
+
+>>> type(s)
+<class 'str'>
+>>> li= s.split()
+>>> li
+['Hope', 'lives', 'on', 'to', 'let', 'you', 'hope']
+>>> len(li)
+7
+>>> li[0]
+'Hope'
+>>> li [-1]
+'hope'
+>>> li[10]
+Traceback (most recent call last):
+  File "<pyshell#7>", line 1, in <module>
+    li[10]
+IndexError: list index out of range
+>>> li[3:]
+['to', 'let', 'you', 'hope']
+>>> li[::-1]
+['hope', 'you', 'let', 'to', 'on', 'lives', 'Hope']
+>>> s
+'Hope lives on to let you hope'
+>>> s[0]='h'
+Traceback (most recent call last):
+  File "<pyshell#11>", line 1, in <module>
+    s[0]='h'
+TypeError: 'str' object does not support item assignment
+>>> id(s)
+2279079850352
+>>> s = 'h' + s[1:]
+>>> id(s)
+2279080148784
+>>> s
+'hope lives on to let you hope'
+>>> # strings of python are immutable
+>>> # lists of python are mutable
+>>> li
+['Hope', 'lives', 'on', 'to', 'let', 'you', 'hope']
+>>> li[0]
+'Hope'
+>>> li[0] = 'hope'
+>>> li
+['hope', 'lives', 'on', 'to', 'let', 'you', 'hope']
+>>> id(li)
+2279080131912
+>>> li[0]='HOPE'
+>>> id(li)
+2279080131912
+>>> li = ['India','US','China']
+>>> li.append('UK')
+>>> li
+['India', 'US', 'China', 'UK']
+>>> b = ['Cuba','Burma','Brazil']
+>>> li.extend(b)
+>>> li
+['India', 'US', 'China', 'UK', 'Cuba', 'Burma', 'Brazil']
+>>> len(li)
+7
+>>> 
+>>> 
+>>> li = ['India','US','China']
+>>> b
+['Cuba', 'Burma', 'Brazil']
+>>> li.append(b)
+>>> li
+['India', 'US', 'China', ['Cuba', 'Burma', 'Brazil']]
+>>> len(li)
+4
+>>> li[3]
+['Cuba', 'Burma', 'Brazil']
+>>> li[3][2]
+'Brazil'
+>>> li[-1][-1]
+'Brazil'
+>>> li = ['India', 'US', 'China', 'UK', 'Cuba', 'Burma', 'Brazil']
+>>> 
+>>> 
+>>> li
+['India', 'US', 'China', 'UK', 'Cuba', 'Burma', 'Brazil']
+>>> li.insert(2, 'Canada')
+>>> li
+['India', 'US', 'Canada', 'China', 'UK', 'Cuba', 'Burma', 'Brazil']
+>>> 
+>>> 
+>>> id(li[2])
+2279074757872
+>>> li.insert(2, 'Mexio')
+>>> li
+['India', 'US', 'Mexio', 'Canada', 'China', 'UK', 'Cuba', 'Burma', 'Brazil']
+>>> id(li[2])
+2279080034672
+>>> id(li[3])
+2279074757872
+>>> li.remove('Mexio')
+>>> li
+['India', 'US', 'Canada', 'China', 'UK', 'Cuba', 'Burma', 'Brazil']
+>>> li.append('Canada')
+>>> li
+['India', 'US', 'Canada', 'China', 'UK', 'Cuba', 'Burma', 'Brazil', 'Canada']
+>>> li.remove('Canada')
+>>> li
+['India', 'US', 'China', 'UK', 'Cuba', 'Burma', 'Brazil', 'Canada']
+>>> a
+Traceback (most recent call last):
+  File "<pyshell#61>", line 1, in <module>
+    a
+NameError: name 'a' is not defined
+>>> b
+['Cuba', 'Burma', 'Brazil']
+>>> s
+'hope lives on to let you hope'
+>>> del s
+>>> s
+Traceback (most recent call last):
+  File "<pyshell#65>", line 1, in <module>
+    s
+NameError: name 's' is not defined
+>>> li
+['India', 'US', 'China', 'UK', 'Cuba', 'Burma', 'Brazil', 'Canada']
+>>> del li[4]
+>>> li
+['India', 'US', 'China', 'UK', 'Burma', 'Brazil', 'Canada']
+>>> li.pop()
+'Canada'
+>>> li
+['India', 'US', 'China', 'UK', 'Burma', 'Brazil']
+>>> li.pop(-2)
+'Burma'
+>>> li
+['India', 'US', 'China', 'UK', 'Brazil']
+>>> 
