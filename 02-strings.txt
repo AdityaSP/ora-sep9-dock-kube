@@ -129,3 +129,44 @@ IndexError: string index out of range
 >>> s[-1:-len(s)-1:-1]
 'epoh uoy tel ot no sevil epoH'
 >>> 
+
+>>> s
+'Hope lives on to let you hope'
+>>> s.split()
+['Hope', 'lives', 'on', 'to', 'let', 'you', 'hope']
+>>> ip = '12.4.56.34'
+>>> ip.split('.')
+['12', '4', '56', '34']
+>>> 
+>>> 
+>>> x = ip.split('.')
+>>> type(x)
+<class 'list'>
+>>> 
+>>> a = 'hello'
+>>> a + 5
+Traceback (most recent call last):
+  File "<pyshell#80>", line 1, in <module>
+    a + 5
+TypeError: can only concatenate str (not "int") to str
+>>> a
+'hello'
+>>> b = 5
+>>> a + b
+Traceback (most recent call last):
+  File "<pyshell#83>", line 1, in <module>
+    a + b
+TypeError: can only concatenate str (not "int") to str
+>>> a = '5'
+>>> b = 5
+>>> a + str(b)
+'55'
+>>> int(a) + b
+10
+>>> 
+>>> a = 'hello'
+>>> a * 5
+'hellohellohellohellohello'
+>>> print("-" * 50)
+--------------------------------------------------
+>>> 

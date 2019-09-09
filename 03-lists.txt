@@ -132,4 +132,24 @@ NameError: name 's' is not defined
 'Burma'
 >>> li
 ['India', 'US', 'China', 'UK', 'Brazil']
+>>> ip = '123.45.67.45'
+>>> ip.split('.')
+['123', '45', '67', '45']
+>>> ip_li= ip.split('.')
+>>> ip_li
+['123', '45', '67', '45']
+>>> ip_li[-1]
+'45'
+>>> ip_li[-1] + 1
+Traceback (most recent call last):
+  File "<pyshell#78>", line 1, in <module>
+    ip_li[-1] + 1
+TypeError: can only concatenate str (not "int") to str
+>>> int(ip_li[-1]) + 1
+46
+>>> ip_li[-1] = str(int(ip_li[-1]) + 1)
+>>> ip_li
+['123', '45', '67', '46']
+>>> '.'.join(ip_li)
+'123.45.67.46'
 >>> 
