@@ -108,4 +108,11 @@ CANADA
 INDIA
 US
 CANADA
+>>> import random
+>>> random.randint(0,100)
+38
+>>> random.randint(0,100)
+44
+>>> 30
+30
 >>> 
