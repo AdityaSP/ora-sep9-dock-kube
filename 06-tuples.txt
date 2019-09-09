@@ -1,0 +1,67 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+li = [1,2,3]
+>>> type(li)
+<class 'list'>
+>>> t = (1,2,3)
+>>> type(t)
+<class 'tuple'>
+>>> t = 1,2,3
+>>> type(t)
+<class 'tuple'>
+>>> # packing of a tuple
+>>> # un packing of a tuple
+>>> a,b,c = t
+>>> a
+1
+>>> b
+2
+>>> c
+3
+>>> a
+1
+>>> b
+2
+>>> temp = a
+>>> a = b
+>>> b = temp
+>>> a
+2
+>>> b
+1
+>>> a, b = b, a
+>>> a
+1
+>>> b
+2
+>>> 
+>>> 
+>>> 
+>>> li = [(1,2,3),(4,5,6)]
+>>> 
+>>> len(li)
+2
+>>> li[0][0]=9
+Traceback (most recent call last):
+  File "<pyshell#28>", line 1, in <module>
+    li[0][0]=9
+TypeError: 'tuple' object does not support item assignment
+>>> li[0] ='something else'
+>>> li
+['something else', (4, 5, 6)]
+>>> 
+>>> t = ([1,2,3], [4,5,6])
+>>> t[0].pop()
+3
+>>> t
+([1, 2], [4, 5, 6])
+>>> t[1].pop()
+6
+>>> t[0].pop()
+2
+>>> t[0].pop()
+1
+>>> t
+([], [4, 5])
+>>> 

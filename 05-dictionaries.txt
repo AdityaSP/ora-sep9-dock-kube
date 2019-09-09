@@ -1,0 +1,155 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+>>> li = ['a','b','c']
+>>> li[1]
+'b'
+>>> #0--> a, 1 --> b , 2 --> c
+>>> d = { 'name': 'Aditya', 'email': 'sp.aditya@gmail.com'}
+>>> len(d)
+2
+>>> d[0]
+Traceback (most recent call last):
+  File "<pyshell#6>", line 1, in <module>
+    d[0]
+KeyError: 0
+>>> d.keys()
+dict_keys(['name', 'email'])
+>>> d['name']
+'Aditya'
+>>> d['email']
+'sp.aditya@gmail.com'
+>>> d['city']
+Traceback (most recent call last):
+  File "<pyshell#10>", line 1, in <module>
+    d['city']
+KeyError: 'city'
+>>> d['city'] = 'Bangalore'
+>>> d
+{'name': 'Aditya', 'email': 'sp.aditya@gmail.com', 'city': 'Bangalore'}
+>>> len(d)
+3
+>>> d['city']='New York'
+>>> d
+{'name': 'Aditya', 'email': 'sp.aditya@gmail.com', 'city': 'New York'}
+>>> d.values()
+dict_values(['Aditya', 'sp.aditya@gmail.com', 'New York'])
+>>> 'city' in d
+True
+>>> 'Aditya' in d
+False
+>>> 'Aditya' in d.values()
+True
+>>> d['phone'] = ['234208092834', '08983048023']
+>>> d
+{'name': 'Aditya', 'email': 'sp.aditya@gmail.com', 'city': 'New York', 'phone': ['234208092834', '08983048023']}
+>>> d['phone']
+['234208092834', '08983048023']
+>>> d['phone'][-1]
+'08983048023'
+>>> d['address']={'home': 'lasjdou sofjasljf', 'work': 'ourksdlj osudofl'}
+>>> d
+{'name': 'Aditya', 'email': 'sp.aditya@gmail.com', 'city': 'New York', 'phone': ['234208092834', '08983048023'], 'address': {'home': 'lasjdou sofjasljf', 'work': 'ourksdlj osudofl'}}
+>>> d['address']['work']
+'ourksdlj osudofl'
+>>> #JSON -> Java Scrip Object Notation
+>>> 
+>>> 
+>>> {'name': 'Aditya', 'email': 'sp.aditya@gmail.com', 'city': 'New York'}
+{'name': 'Aditya', 'email': 'sp.aditya@gmail.com', 'city': 'New York'}
+>>> d = {'name': 'Aditya', 'email': 'sp.aditya@gmail.com', 'city': 'New York'}
+>>> d
+{'name': 'Aditya', 'email': 'sp.aditya@gmail.com', 'city': 'New York'}
+>>> 
+>>> 
+>>> for k in d:
+	print(k)
+
+	
+name
+email
+city
+>>> for k in d:
+	print("key", k, "value", d[k])
+
+	
+key name value Aditya
+key email value sp.aditya@gmail.com
+key city value New York
+>>> for item in d.items():
+	print(type(item))
+
+	
+<class 'tuple'>
+<class 'tuple'>
+<class 'tuple'>
+>>> for item in d.items():
+	print(type(item))
+	print(item)
+
+	
+<class 'tuple'>
+('name', 'Aditya')
+<class 'tuple'>
+('email', 'sp.aditya@gmail.com')
+<class 'tuple'>
+('city', 'New York')
+>>> for item in d.items():
+	print("key", item[0], "value", item[1])
+
+	
+key name value Aditya
+key email value sp.aditya@gmail.com
+key city value New York
+>>> for item in d.items():
+	k,v = item
+	print("key", k, "value", v)
+
+	
+key name value Aditya
+key email value sp.aditya@gmail.com
+key city value New York
+>>> for k,v in d.items():
+	print("key", k, "value", v)
+
+	
+key name value Aditya
+key email value sp.aditya@gmail.com
+key city value New York
+>>> 
+>>> 
+>>> 
+>>> li
+['a', 'b', 'c']
+>>> for item in enumerate(li):
+	print(item)
+
+	
+(0, 'a')
+(1, 'b')
+(2, 'c')
+>>> for idx, item in enumerate(li):
+	print(item, "occurs at", idx)
+
+	
+a occurs at 0
+b occurs at 1
+c occurs at 2
+>>> 
+>>> fn = [ 'Bill', 'Steve', 'Md']
+>>> ln = ['Gates', 'Jobs', 'Ali']
+>>> for item in zip(fn, ln):
+	print(item)
+
+	
+('Bill', 'Gates')
+('Steve', 'Jobs')
+('Md', 'Ali')
+>>> for f, l in zip(fn, ln):
+	print(f, l)
+
+	
+Bill Gates
+Steve Jobs
+Md Ali
+>>> 
