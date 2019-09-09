@@ -63,3 +63,49 @@ True
 >>> s.replace('l','L')
 'HeLLo WorLd'
 >>> 
+>>> 
+>>> 
+>>> li
+['India', 'US', 'Canada']
+>>> count = 0
+>>> while count < len(li):
+	print(li[count].upper())
+	count += 1
+
+	
+INDIA
+US
+CANADA
+>>> while count < len(li):
+	print(li[count].upper())
+	count += 1
+
+	
+>>> count
+3
+>>> count = 0
+>>> while count < len(li):
+	print(li[count].upper())
+	count += 1
+
+	
+INDIA
+US
+CANADA
+>>> li
+['India', 'US', 'Canada']
+>>> for country in li:
+	print(country.upper())
+
+	
+INDIA
+US
+CANADA
+>>> for country in li:
+	print(country.upper())
+
+	
+INDIA
+US
+CANADA
+>>> 
