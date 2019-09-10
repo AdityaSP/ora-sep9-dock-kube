@@ -278,3 +278,12 @@ TypeError: <lambda>() takes 0 positional arguments but 1 was given
 >>> nli
 ['what', 'are', 'you', 'how', 'are', 'you', 'who', 'are', 'you']
 >>> 
+
+>>> 
+>>> line = 'MicrosoftEdge.exe            31092 Console                    1     72,476 K\r'
+>>> 
+>>> line.split()
+['MicrosoftEdge.exe', '31092', 'Console', '1', '72,476', 'K']
+>>> line.split(' ')
+['MicrosoftEdge.exe', '', '', '', '', '', '', '', '', '', '', '', '31092', 'Console', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '72,476', 'K\r']
+>>> 
