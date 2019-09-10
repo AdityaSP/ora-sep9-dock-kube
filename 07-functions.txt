@@ -1,0 +1,79 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> def sayhi():
+	print("Hi")
+
+	
+>>> sayhi()
+Hi
+>>> def sayhi():
+	return "Hi"
+
+>>> x = sayhi()
+>>> x
+'Hi'
+>>> def sayhi():
+	print("hi")
+	return "Hi"
+
+>>> x = sayhi()
+hi
+>>> x
+'Hi'
+>>> # print is the sideeffect
+>>> def sayhi(name):
+	return "Hi " + name
+
+>>> sayhi('Aditya')
+'Hi Aditya'
+>>> # f(x) = x + 5
+>>> 
+>>> 
+>>> def full_name(fn, ln, title):
+	return title.capitalize() + "." + fn + " " + ln
+
+>>> full_name('John','Doe', 'Mr')
+'Mr.John Doe'
+>>> full_name('John','Doe')
+Traceback (most recent call last):
+  File "<pyshell#24>", line 1, in <module>
+    full_name('John','Doe')
+TypeError: full_name() missing 1 required positional argument: 'title'
+>>> full_name('John','Doe', 'mr')
+'Mr.John Doe'
+>>> full_name(fn='John', ln='Doe', title='mr')
+'Mr.John Doe'
+>>> # key word based arguments
+>>> full_name(title='mr', ln='Doe', fn='John')
+'Mr.John Doe'
+>>> def full_name(fn, ln, title='mr'):
+	return title.capitalize() + "." + fn + " " + ln
+
+>>> full_name(fn='John', ln='Doe')
+'Mr.John Doe'
+>>> full_name(fn='John', ln='Doe', title='Dr')
+'Dr.John Doe'
+>>> 
+>>> 
+>>> li = [56,34,68,23,78]
+>>> sorted(li)
+[23, 34, 56, 68, 78]
+>>> sorted(li, reverse = True)
+[78, 68, 56, 34, 23]
+>>> 
+>>> 
+>>> def sayhi():
+	'returns a cheerful hi'
+	return "Hi"
+
+>>> sayhi.__doc__
+'returns a cheerful hi'
+>>> len.__doc__
+'Return the number of items in a container.'
+>>> help(sayhi)
+Help on function sayhi in module __main__:
+
+sayhi()
+    returns a cheerful hi
+
+>>> 
