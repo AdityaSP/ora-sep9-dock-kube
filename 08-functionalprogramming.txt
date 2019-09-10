@@ -96,3 +96,120 @@ Type "help", "copyright", "credits" or "license()" for more information.
 >>> sorted(li, key=len)
 ['z', 'bb', 'gggg', 'aaaaa']
 >>> 
+
+>>> 
+>>> li = [1,2,3,4,5]
+>>> sqs = []
+>>> for i in li:
+	sqs.append(i * i)
+
+	
+>>> sqs
+[1, 4, 9, 16, 25]
+>>> 
+>>> 
+>>> def sq(x):
+	return x * x
+
+>>> m = map(sq, li)
+>>> 
+>>> 
+>>> type(m)
+<class 'map'>
+>>> m
+<map object at 0x000001213F61FF48>
+>>> for i in m:
+	print(i)
+
+	
+1
+4
+9
+16
+25
+>>> m = map(sq, li)
+>>> list(m)
+[1, 4, 9, 16, 25]
+>>> m = map(sq, li)
+>>> tuple(m)
+(1, 4, 9, 16, 25)
+>>> 
+>>> 
+>>> li
+[1, 2, 3, 4, 5]
+>>> list(map(sq, li))
+[1, 4, 9, 16, 25]
+>>> list(map(sq, li))
+[1, 4, 9, 16, 25]
+>>> m = map(sq, li)
+>>> list(m)
+[1, 4, 9, 16, 25]
+>>> list(m)
+[]
+>>> m = map(sq, li)
+>>> 
+>>> 
+>>> m
+<map object at 0x000001213F61FF48>
+>>> li
+[1, 2, 3, 4, 5]
+>>> sum(li)
+15
+>>> sum(m)
+55
+>>> 
+>>> 
+>>> 10
+10
+>>> 'Hello'
+'Hello'
+>>> a= 10
+>>> 
+>>> 
+>>> def add(x,y):
+	return x + y
+
+>>> lambda x,y: x+y
+<function <lambda> at 0x000001213F6CA678>
+>>> d = lambda x,y: x+y
+>>> type(d)
+<class 'function'>
+>>> d(4,5)
+9
+>>> m = 5
+>>> n = 6
+>>> add(m,n)
+11
+>>> add(5,6)
+11
+>>> def calc(x,y,f):
+	return f(x,y)
+
+>>> calc(4,5, lambda x,y: x*x + y*y)
+41
+>>> calc(4,5, lambda x, y: x*y)
+20
+>>> li = [5,10, 21,42]
+>>> list(map(lambda x: x * 0.6, li))
+[3.0, 6.0, 12.6, 25.2]
+>>> li = ['New Jersey', 'new York', 'London', 'sydney', 'agra']
+>>> sorted(li, key= lambda x: x.upper())
+['agra', 'London', 'New Jersey', 'new York', 'sydney']
+>>> 
+>>> 
+>>> ages = [12,34,78,12,4,67,90]
+>>> list(filter(lambda
+	    : 10<x<70, ages))
+Traceback (most recent call last):
+  File "<pyshell#140>", line 2, in <module>
+    : 10<x<70, ages))
+TypeError: <lambda>() takes 0 positional arguments but 1 was given
+>>> list(filter(lambda x: 10<x<70, ages))
+[12, 34, 12, 67]
+>>> ages
+[12, 34, 78, 12, 4, 67, 90]
+>>> list(map(lambda x : x * 12 , filter(lambda x: 10<x<70, ages)))
+[144, 408, 144, 804]
+>>> list(map(lambda x : x * 12 , filter(lambda x: 10<x<70, ages)))
+[144, 408, 144, 804]
+>>> 
