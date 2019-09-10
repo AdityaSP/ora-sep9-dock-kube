@@ -1,0 +1,98 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+
+>>> 
+>>> a = 10
+>>> def sayhi():
+	return "Hi"
+
+>>> id(a)
+140713514856992
+>>> id(sayhi)
+1242309289304
+>>> type(a)
+<class 'int'>
+>>> type(sayhi)
+<class 'function'>
+>>> b = a
+>>> id(b), id(a)
+(140713514856992, 140713514856992)
+>>> greet = sayhi
+>>> id(greet), id(sayhi)
+(1242309289304, 1242309289304)
+>>> type(greet)
+<class 'function'>
+>>> greet()
+'Hi'
+>>> 
+>>> def execother(x):
+	print(type(x))
+
+	
+>>> execother(a)
+<class 'int'>
+>>> execother(sayhi)
+<class 'function'>
+>>> 
+>>> 
+>>> def execother(x):
+	return x()
+
+>>> 
+>>> 
+>>> execother(sayhi)
+'Hi'
+>>> 
+>>> 
+>>> 
+>>> def calc(x,y,f):
+	return f(x,y)
+
+>>> def add(x,y):
+	return x + y
+
+>>> def sub(x,y):
+	return x- y
+
+>>> 
+>>> 
+>>> calc(3,4,add)
+7
+>>> calc(3,4,sub)
+-1
+>>> # add ---> first order function
+>>> # (half the definition) : if a function accepts another function --> Higher order function
+>>> 
+>>> 
+>>> 
+>>> 
+>>> li = ['New Jersey', 'new York', 'London', 'sydney']
+>>> sorted(li)
+['London', 'New Jersey', 'new York', 'sydney']
+>>> li = ['New Jersey', 'new York', 'London', 'sydney', 'agra']
+>>> sorted(li)
+['London', 'New Jersey', 'agra', 'new York', 'sydney']
+>>> def toupper(x):
+	return x.upper()
+
+>>> toupper('agra')
+'AGRA'
+>>> sorted(li, key = toupper)
+['agra', 'London', 'New Jersey', 'new York', 'sydney']
+>>> 
+>>> 
+>>> 
+>>> li = ['aaaaa','bb','gggg','z']
+>>> sorted(li)
+['aaaaa', 'bb', 'gggg', 'z']
+>>> def lenght(x):
+	return len(x)
+
+>>> sorted(li, key=lenght)
+['z', 'bb', 'gggg', 'aaaaa']
+>>> 
+>>> 
+>>> sorted(li, key=len)
+['z', 'bb', 'gggg', 'aaaaa']
+>>> 
