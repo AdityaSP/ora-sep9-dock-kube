@@ -1,0 +1,105 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+
+>>> fp = 'D:\\training\\python\\sep9-us\\trial.txt'
+>>> fp = 'D:/training/python/sep9-us/trial.txt'
+>>> 
+>>> fp = r'D:\training\python\sep9-us\trial.txt'
+>>> type(fp)
+<class 'str'>
+>>> fh = open(fp,'wt')
+>>> fh.write("some text")
+9
+>>> fh.close()
+>>> fh = open(fp,'wt')
+>>> fh.write("New text\n")
+9
+>>> fh.write("New text2\n")
+10
+>>> fh.write("New text3\n")
+10
+>>> fh.close()
+>>> fh = open(fp,'at')
+>>> fh.write("Some thing else")
+15
+>>> fh.close()
+>>> 
+>>> 
+>>> 
+>>> 
+>>> fh.write('nothing')
+Traceback (most recent call last):
+  File "<pyshell#21>", line 1, in <module>
+    fh.write('nothing')
+ValueError: I/O operation on closed file.
+>>> fh = open(fp, 'rt')
+>>> fh.write('x')
+Traceback (most recent call last):
+  File "<pyshell#23>", line 1, in <module>
+    fh.write('x')
+io.UnsupportedOperation: not writable
+>>> s = fh.read()
+>>> s
+'New text\nNew text2\nNew text3\nSome thing else'
+>>> s = fh.read()
+>>> s
+''
+>>> fh.seek(0)
+0
+>>> s = fh.read()
+>>> s
+'New text\nNew text2\nNew text3\nSome thing else'
+>>> fh.seek(0)
+0
+>>> lines = fh.readlines()
+>>> lines
+['New text\n', 'New text2\n', 'New text3\n', 'Some thing else']
+>>> fh.seek(0)
+0
+>>> 
+>>> for line in fh:
+	print(line)
+
+	
+New text
+
+New text2
+
+New text3
+
+Some thing else
+>>> fh.close()
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> fh = open(fp, 'rt')
+>>> s = fh.read()
+>>> fh.close()
+>>> 
+>>> 
+>>> #context manager
+>>> with open(fp,'rt') as fh:
+	s = fh.read()
+
+	
+>>> fp = r'D:\training\python\sep9-us\file1.jpg'
+>>> fpcopy = r'D:\training\python\sep9-us\file1copy.jpg'
+>>> fh = open(fp, 'rb')
+>>> fpcopy = open(fp, 'wb')
+>>> fh.close()
+>>> fpcopy.close()
+>>> 
+>>> 
+>>> 
+>>> fp = r'D:\training\python\sep9-us\file1.jpg'
+>>> fpcopy = r'D:\training\python\sep9-us\file1copy.jpg'
+>>> fh = open(fp, 'rb')
+>>> fpcopy = open(fpcopy, 'wb')
+>>> fpcopy.write(fh.read())
+183043
+>>> fpcopy.close()
+>>> fh.close()
+>>> 
