@@ -287,3 +287,155 @@ TypeError: <lambda>() takes 0 positional arguments but 1 was given
 >>> line.split(' ')
 ['MicrosoftEdge.exe', '', '', '', '', '', '', '', '', '', '', '', '31092', 'Console', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '72,476', 'K\r']
 >>> 
+>>> 
+>>> 
+>>> 
+>>> def greet(name):
+	def sayhi():
+		return "Hi " + name
+	return sayhi
+
+>>> x = greet('Aditya')
+>>> type(x)
+<class 'function'>
+>>> x()
+'Hi Aditya'
+>>> y = greet('Mark')
+>>> y()
+'Hi Mark'
+>>> 
+>>> 
+>>> 
+>>> def bill(item1 , item2, tax):
+	total = item1 + item2
+	grandtotal = total + total * tax
+	return grandtotal
+
+>>> bill (100,200,0.05)
+315.0
+>>> def bill(item1, item2):
+	total = item1 + item2
+	def withtax(tax):
+		grandtotal = total + total*tax
+		return grandtotal
+	return withtax
+
+>>> b1 = bill(100,200)
+>>> type(b1)
+<class 'function'>
+>>> b1(0.05)
+315.0
+>>> b1(0.15)
+345.0
+>>> b1(0.2)
+360.0
+>>> bill(100,200)(0.05)
+315.0
+>>> 
+>>> 
+>>> def greet(lang):
+	def spanish():
+		return "hola"
+	def english():
+		return "Hello"
+	if lang == 'ES':
+		return spanish
+	elif lang == 'EN':
+		return english
+
+	
+>>> x = greet('EN')
+>>> x()
+'Hello'
+>>> x = greet('ES')
+>>> x()
+'hola'
+>>> 
+>>> 
+>>> def sayhi():
+	print("Hi")
+
+	
+>>> sayhi()
+Hi
+>>> def deco(f):
+	def wrapper():
+		print("*" * 30)
+		f()
+		print("*" * 30)
+	return wrapper
+
+>>> x = sayhi()
+Hi
+>>> x = deco(sayhi)
+>>> x()
+******************************
+Hi
+******************************
+>>> 
+>>> 
+>>> 
+>>> 
+>>> def deco(f):
+	def wrapper():
+		print("*" * 30)
+		f()
+		print("*" * 30)
+	return wrapper
+
+>>> @deco
+def sayhi():
+	print("Hi")
+
+	
+>>> 
+>>> sayhi()
+******************************
+Hi
+******************************
+>>> 
+>>> 
+>>> import time
+>>> import random
+>>> 
+>>> def heavyduty():
+	time.sleep(random.randint(1,5))
+
+	
+>>> heavyduty()
+>>> time.time()
+1568143300.8059723
+>>> time.time()
+1568143316.528466
+>>> def timer(f):
+	def wrapper():
+		s = time.time()
+		f()
+		e = time.time()
+		print("Took", e-s , "seconds")
+	return wrapper
+
+>>> @timer
+def heavyduty():
+	time.sleep(random.randint(1,5))
+
+	
+>>> heavyduty()
+Took 2.0008156299591064 seconds
+>>> heavyduty()
+Took 3.000183343887329 seconds
+>>> heavyduty()
+Took 1.0004034042358398 seconds
+>>> heavyduty()
+Took 5.0007164478302 seconds
+>>> @deco
+@timer
+def heavyduty():
+	time.sleep(random.randint(1,5))
+
+	
+>>> heavyduty()
+******************************
+Took 4.000034809112549 seconds
+******************************
+>>> 
