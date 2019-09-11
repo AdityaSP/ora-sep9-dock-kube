@@ -2,7 +2,11 @@ import bank
 sa = bank.SA('Aditya')
 print(sa.n, sa.b)
 sa.credit(100)
-sa.debit(2000)
+try:
+    sa.debit(2000)
+except bank.InsufficientBalanceError as err:
+    print("Please check you balance or try after sometime")
+    
 print(sa.n, sa.b)
 
 ca = bank.CA('ABC Inc.')

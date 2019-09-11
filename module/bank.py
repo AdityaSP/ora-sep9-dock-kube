@@ -1,3 +1,6 @@
+class InsufficientBalanceError(Exception):
+    pass
+
 class Account():
     def __init__(self, n, b, t):
         self.n = n
@@ -12,9 +15,8 @@ class SA(Account):
     def __init__(self, n, b=1000):
         Account.__init__(self, n, b, 'S')
     def debit(self, amount):
-        # TODO- convert to exceptions
         if self.b < amount:
-            print("Insufficient Balance")
+            raise InsufficientBalanceError('Not enough money')
         else:
             Account.debit(self, amount)
 
