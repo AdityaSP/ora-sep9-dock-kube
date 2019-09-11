@@ -114,3 +114,68 @@ TypeError: __init__() missing 2 required positional arguments: 'b' and 'n'
 I drive a  Honda City
 >>> # Encapsulation
 >>> 
+li
+Traceback (most recent call last):
+  File "<pyshell#69>", line 2, in <module>
+    li
+NameError: name 'li' is not defined
+>>> li = [1,2]
+>>> li[3]
+Traceback (most recent call last):
+  File "<pyshell#71>", line 1, in <module>
+    li[3]
+IndexError: list index out of range
+>>> 
+>>> 
+>>> 
+>>> class LB():
+	def breathe(self):
+		print("I breathe")
+
+		
+>>> class HB():
+	def breathe(self):
+		print("I breathe")
+
+		
+>>> # is-a -->
+>>> # is LB a HB?
+>>> # is HB a LB?
+>>> Yes
+Traceback (most recent call last):
+  File "<pyshell#86>", line 1, in <module>
+    Yes
+NameError: name 'Yes' is not defined
+>>> class Fabric():
+	def breathe(self):
+		print("I breathe")
+
+		
+>>> # is -a class LB():
+	def breathe(self):
+		print("I breathe")
+		
+SyntaxError: unexpected indent
+>>> class LB():
+	def breathe(self):
+		print("I breathe")
+
+		
+>>> class HB(LB):
+	pass
+
+>>> objh = HB()
+>>> objh.breathe()
+I breathe
+>>> # inheritence
+>>> class HB(LB):
+	def metathink(self):
+		print("I think therefore I am")
+
+		
+>>> objh = HB()
+>>> objh.breathe()
+I breathe
+>>> objh.metathink()
+I think therefore I am
+>>> 
