@@ -179,3 +179,101 @@ I breathe
 >>> objh.metathink()
 I think therefore I am
 >>> 
+
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class LB():
+	def breathe(self):
+		print("I breathe")
+
+		
+>>> class HB(LB):
+	def metathink(self):
+		print("I think therefore I am")
+	def breathe(self):
+		print("Through lungs")
+
+		
+>>> objh = HB()
+>>> objh.breathe()
+Through lungs
+>>> #over-riding
+>>> # HB.breathe overrides LB.breathe
+>>> class HB(LB):
+	def metathink(self):
+		print("I think therefore I am")
+	def breathe(self):
+		LB.breathe(self)
+		print("Through lungs")
+
+		
+>>> objh.breathe()
+Through lungs
+>>> objh = HB()
+>>> objh.breathe()
+I breathe
+Through lungs
+>>> # super calls
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class A():
+	def __init__(self):
+		self.v1 = 10
+	def showv1(self):
+		print(self.v1)
+
+		
+>>> class B(A):
+	def __init__(self):
+		self.v2 = 20
+
+		
+>>> objb = B()
+>>> objb.showv1()
+Traceback (most recent call last):
+  File "<pyshell#148>", line 1, in <module>
+    objb.showv1()
+  File "<pyshell#142>", line 5, in showv1
+    print(self.v1)
+AttributeError: 'B' object has no attribute 'v1'
+>>> dir(objb)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'showv1', 'v2']
+>>> class A():
+	def __init__(self):
+		self.v1 = 10
+	def showv1(self):
+		print(self.v1)
+
+		
+>>> class B(A):
+	def __init__(self):
+		A.__init__(self)
+		self.v2 = 20
+
+		
+>>> objb = B()
+>>> dir(objb)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'showv1', 'v1', 'v2']
+>>> objb.showv1()
+10
+>>> objb.showvi()
+Traceback (most recent call last):
+  File "<pyshell#157>", line 1, in <module>
+    objb.showvi()
+AttributeError: 'B' object has no attribute 'showvi'
+>>> objb.showv1()
+10
+>>> B.showv1(objb)
+10
+>>> 
