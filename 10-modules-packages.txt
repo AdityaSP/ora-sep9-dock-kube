@@ -53,4 +53,53 @@ TypeError: 'module' object is not callable
 <module 'calculator' from 'D:\\training\\python\\sep9-us\\module\\calculator.py'>
 >>> calculator.add(4,5)
 41
+>>> sys.path
+['', 'D:\\sw\\python37\\Lib\\idlelib', 'D:\\training\\python\\sep9\\modules', 'D:\\sw\\python37\\python37.zip', 'D:\\sw\\python37\\DLLs', 'D:\\sw\\python37\\lib', 'D:\\sw\\python37', 'D:\\sw\\python37\\lib\\site-packages', 'D:\\training\\python\\sep9-us\\module']
+>>> #D:\training\python\sep9-us\module\network
+>>> #D:\training\python\sep9-us\module\db
+>>> import network.config
+>>> import db.config
+>>> network.config.configure()
+Dummy nw config
+>>> db.config.configure()
+Dummy db config
+>>> 
+>>> 
+>>> 
+>>> from network import config
+>>> from network.config import configure
+>>> config.configure()
+Dummy nw config
+>>> configure()
+Dummy nw config
+>>> from db.config import configure
+>>> configure()
+Dummy db config
+>>> import threading.Thread
+Traceback (most recent call last):
+  File "<pyshell#44>", line 1, in <module>
+    import threading.Thread
+ModuleNotFoundError: No module named 'threading.Thread'; 'threading' is not a package
+>>> from threading import Thread
+>>> 
+>>> 
+>>> 
+>>> from network.config import *
+>>> 
+>>> 
+>>> import network.config as nc
+>>> import db.config as dbc
+>>> 
+>>> 
+>>> nc.configure()
+Dummy nw config
+>>> dbc.configure()
+Dummy db config
+>>> 
+
+>>> nc.configure()
+Dummy nw config
+>>> print(nc.configure())
+Dummy nw config
+None
 >>> 
