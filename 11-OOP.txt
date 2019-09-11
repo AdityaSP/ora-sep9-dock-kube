@@ -1,0 +1,116 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> a = 10
+>>> type(a)
+<class 'int'>
+>>> s = 'hello'
+>>> type(s)
+<class 'str'>
+>>> s.upper()
+'HELLO'
+>>> class Car():
+	pass
+
+>>> a = int()
+>>> type(a)
+<class 'int'>
+>>> a
+0
+>>> city = Car()
+>>> type(city)
+<class '__main__.Car'>
+>>> dir(city)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
+>>> 
+>>> 
+>>> 
+>>> city.brand = 'Honda'
+>>> city.name = 'City'
+>>> dir(city)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'brand', 'name']
+>>> city.brand
+'Honda'
+>>> city.name
+'City'
+>>> to = Car()
+>>> dir(to)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
+>>> to.brand = 'Toyota'
+>>> to.name = 'Corolla'
+>>> type(city)
+<class '__main__.Car'>
+>>> type(to)
+<class '__main__.Car'>
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class Car():
+	def __init__(self):
+		print("In Here")
+		print(id(self))
+
+		
+>>> city = Car()
+In Here
+2780313345032
+>>> id(city)
+2780313345032
+>>> class Car():
+	def __init__(self):
+		print("In Here")
+		print(id(self))
+		self.brand = 'Honda'
+		self.name = 'City'
+
+		
+>>> city= Car()
+In Here
+2780313626568
+>>> dir(city)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'brand', 'name']
+>>> city.brand, city.name
+('Honda', 'City')
+>>> to = Car()
+In Here
+2780313450824
+>>> dir(to)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'brand', 'name']
+>>> to.brand, to.name
+('Honda', 'City')
+>>> class Car():
+	def __init__(self, b, n):
+		self.brand = b
+		self.name = n
+
+		
+>>> city = Car()
+Traceback (most recent call last):
+  File "<pyshell#53>", line 1, in <module>
+    city = Car()
+TypeError: __init__() missing 2 required positional arguments: 'b' and 'n'
+>>> city = Car('Honda', 'City')
+>>> city.brand, city.name
+('Honda', 'City')
+>>> to = Car('Toyota', 'Corolla')
+>>> to.brand, to.name
+('Toyota', 'Corolla')
+>>> # Data encapsulation
+>>> # Class
+>>> # objects
+>>> class Car():
+	def __init__(self, b, n):
+		self.brand = b
+		self.name = n
+	def drive(self):
+		print("I drive a ", self.brand , self.name)
+
+		
+>>> city = Car('Honda', 'City')
+>>> dir(city)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'brand', 'drive', 'name']
+>>> city.drive()
+I drive a  Honda City
+>>> # Encapsulation
+>>> 
