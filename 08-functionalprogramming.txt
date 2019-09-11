@@ -439,3 +439,107 @@ def heavyduty():
 Took 4.000034809112549 seconds
 ******************************
 >>> 
+def timer(f):
+	def wrapper():
+		s = time.time()
+		f()
+		e = time.time()
+		print("Took", e-s , "seconds")
+	return wrapper
+
+>>> @timer
+def heavyduty():
+	time.sleep(random.randint(1,5))
+
+	
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> range()
+Traceback (most recent call last):
+  File "<pyshell#313>", line 1, in <module>
+    range()
+TypeError: range expected 1 arguments, got 0
+>>> range(10)
+range(0, 10)
+>>> list(range(10))
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> 
+>>> 
+>>> # { <key expr>:<value expr> <for statement> <if gate>}
+>>> 
+>>> { i:i**3  for i in range(10)}
+{0: 0, 1: 1, 2: 8, 3: 27, 4: 64, 5: 125, 6: 216, 7: 343, 8: 512, 9: 729}
+>>> d = { i:i**3  for i in range(10)}
+>>> d[8]
+512
+>>> { i:i**3  for i in range(10) if i%2 == 0}
+{0: 0, 2: 8, 4: 64, 6: 216, 8: 512}
+>>> 
+>>> 
+>>> s = 'A quick brown fox jumps over a lazy dog'
+>>> s = 'A quick brown fox jumps over the lazy dog'
+>>> s = 'a quick brown fox jumps over the lazy dog'
+>>> d = { c:s.count(c) for c in s }
+>>> len(d)
+27
+>>> d
+{'a': 2, ' ': 8, 'q': 1, 'u': 2, 'i': 1, 'c': 1, 'k': 1, 'b': 1, 'r': 2, 'o': 4, 'w': 1, 'n': 1, 'f': 1, 'x': 1, 'j': 1, 'm': 1, 'p': 1, 's': 1, 'v': 1, 'e': 2, 't': 1, 'h': 1, 'l': 1, 'z': 1, 'y': 1, 'd': 1, 'g': 1}
+>>> d = { c:s.count(c) for c in s if s.count(c) > 1}
+>>> d
+{'a': 2, ' ': 8, 'u': 2, 'r': 2, 'o': 4, 'e': 2}
+>>> 
+>>> 
+>>> def adder(*args):
+	print(type(args))
+	print(args)
+
+	
+>>> adder(1,23,5,34,56)
+<class 'tuple'>
+(1, 23, 5, 34, 56)
+>>> adder(1,23,5)
+<class 'tuple'>
+(1, 23, 5)
+>>> def adder(*args):
+	return sum(args)
+
+>>> adder(1,23,5,34,56)
+119
+>>> adder(1,23,5)
+29
+>>> def convert(**kwargs):
+	print(kwargs)
+	print(type(kwargs))
+
+	
+>>> covert(mi=3)
+Traceback (most recent call last):
+  File "<pyshell#351>", line 1, in <module>
+    covert(mi=3)
+NameError: name 'covert' is not defined
+>>> convert(mi=3)
+{'mi': 3}
+<class 'dict'>
+>>> def convert(**kwargs):
+	if 'mi' in kwargs:
+		return kwargs['mi']*1.6
+	elif 'cms' in kwargs:
+		return kwargs['cms']/2.54
+	else:
+		return "Unsupported"
+
+	
+>>> convert(mi=5)
+8.0
+>>> convert(cms=5)
+1.968503937007874
+>>> convert(lbs=5)
+'Unsupported'
+>>> map(lambda x, y : x + y, range(10), range(10))
+<map object at 0x000001213F6AD648>
+>>> list(map(lambda x, y : x + y, range(10), range(10)))
+[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+>>> 

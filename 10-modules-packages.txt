@@ -1,0 +1,56 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+
+>>> import random
+>>> import calculator
+Traceback (most recent call last):
+  File "<pyshell#2>", line 1, in <module>
+    import calculator
+ModuleNotFoundError: No module named 'calculator'
+>>> import sys
+>>> sys.path
+['', 'D:\\sw\\python37\\Lib\\idlelib', 'D:\\training\\python\\sep9\\modules', 'D:\\sw\\python37\\python37.zip', 'D:\\sw\\python37\\DLLs', 'D:\\sw\\python37\\lib', 'D:\\sw\\python37', 'D:\\sw\\python37\\lib\\site-packages']
+>>> sys.path.append(r'D:\training\python\sep9-us\module')
+>>> sys.path
+['', 'D:\\sw\\python37\\Lib\\idlelib', 'D:\\training\\python\\sep9\\modules', 'D:\\sw\\python37\\python37.zip', 'D:\\sw\\python37\\DLLs', 'D:\\sw\\python37\\lib', 'D:\\sw\\python37', 'D:\\sw\\python37\\lib\\site-packages', 'D:\\training\\python\\sep9-us\\module']
+>>> import calculator
+>>> calculator.add(4,5)
+9
+>>> dir()
+['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__', 'calculator', 'random', 'sys']
+>>> a = 10
+>>> dir()
+['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__', 'a', 'calculator', 'random', 'sys']
+>>> dir(__builtins__)
+['ArithmeticError', 'AssertionError', 'AttributeError', 'BaseException', 'BlockingIOError', 'BrokenPipeError', 'BufferError', 'BytesWarning', 'ChildProcessError', 'ConnectionAbortedError', 'ConnectionError', 'ConnectionRefusedError', 'ConnectionResetError', 'DeprecationWarning', 'EOFError', 'Ellipsis', 'EnvironmentError', 'Exception', 'False', 'FileExistsError', 'FileNotFoundError', 'FloatingPointError', 'FutureWarning', 'GeneratorExit', 'IOError', 'ImportError', 'ImportWarning', 'IndentationError', 'IndexError', 'InterruptedError', 'IsADirectoryError', 'KeyError', 'KeyboardInterrupt', 'LookupError', 'MemoryError', 'ModuleNotFoundError', 'NameError', 'None', 'NotADirectoryError', 'NotImplemented', 'NotImplementedError', 'OSError', 'OverflowError', 'PendingDeprecationWarning', 'PermissionError', 'ProcessLookupError', 'RecursionError', 'ReferenceError', 'ResourceWarning', 'RuntimeError', 'RuntimeWarning', 'StopAsyncIteration', 'StopIteration', 'SyntaxError', 'SyntaxWarning', 'SystemError', 'SystemExit', 'TabError', 'TimeoutError', 'True', 'TypeError', 'UnboundLocalError', 'UnicodeDecodeError', 'UnicodeEncodeError', 'UnicodeError', 'UnicodeTranslateError', 'UnicodeWarning', 'UserWarning', 'ValueError', 'Warning', 'WindowsError', 'ZeroDivisionError', '_', '__build_class__', '__debug__', '__doc__', '__import__', '__loader__', '__name__', '__package__', '__spec__', 'abs', 'all', 'any', 'ascii', 'bin', 'bool', 'breakpoint', 'bytearray', 'bytes', 'callable', 'chr', 'classmethod', 'compile', 'complex', 'copyright', 'credits', 'delattr', 'dict', 'dir', 'divmod', 'enumerate', 'eval', 'exec', 'exit', 'filter', 'float', 'format', 'frozenset', 'getattr', 'globals', 'hasattr', 'hash', 'help', 'hex', 'id', 'input', 'int', 'isinstance', 'issubclass', 'iter', 'len', 'license', 'list', 'locals', 'map', 'max', 'memoryview', 'min', 'next', 'object', 'oct', 'open', 'ord', 'pow', 'print', 'property', 'quit', 'range', 'repr', 'reversed', 'round', 'set', 'setattr', 'slice', 'sorted', 'staticmethod', 'str', 'sum', 'super', 'tuple', 'type', 'vars', 'zip']
+>>> sys.path
+['', 'D:\\sw\\python37\\Lib\\idlelib', 'D:\\training\\python\\sep9\\modules', 'D:\\sw\\python37\\python37.zip', 'D:\\sw\\python37\\DLLs', 'D:\\sw\\python37\\lib', 'D:\\sw\\python37', 'D:\\sw\\python37\\lib\\site-packages', 'D:\\training\\python\\sep9-us\\module']
+>>> import random
+>>> dir(random)
+['BPF', 'LOG4', 'NV_MAGICCONST', 'RECIP_BPF', 'Random', 'SG_MAGICCONST', 'SystemRandom', 'TWOPI', '_BuiltinMethodType', '_MethodType', '_Sequence', '_Set', '__all__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '_acos', '_bisect', '_ceil', '_cos', '_e', '_exp', '_inst', '_itertools', '_log', '_os', '_pi', '_random', '_sha512', '_sin', '_sqrt', '_test', '_test_generator', '_urandom', '_warn', 'betavariate', 'choice', 'choices', 'expovariate', 'gammavariate', 'gauss', 'getrandbits', 'getstate', 'lognormvariate', 'normalvariate', 'paretovariate', 'randint', 'random', 'randrange', 'sample', 'seed', 'setstate', 'shuffle', 'triangular', 'uniform', 'vonmisesvariate', 'weibullvariate']
+>>> random.__file__
+'D:\\sw\\python37\\lib\\random.py'
+>>> dir(calculator)
+['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'add', 'sub']
+>>> calculator.__file__
+'D:\\training\\python\\sep9-us\\module\\calculator.py'
+>>> calculator.__name__
+'calculator'
+>>> calculator.add(4,5)
+9
+>>> import calculator
+>>> calculator.add(4,5)
+9
+>>> 
+>>> import importlib
+>>> importlib(calculator)
+Traceback (most recent call last):
+  File "<pyshell#25>", line 1, in <module>
+    importlib(calculator)
+TypeError: 'module' object is not callable
+>>> importlib.reload(calculator)
+<module 'calculator' from 'D:\\training\\python\\sep9-us\\module\\calculator.py'>
+>>> calculator.add(4,5)
+41
+>>> 
