@@ -103,3 +103,83 @@ Dummy nw config
 Dummy nw config
 None
 >>> 
+
+>>> 
+>>> 
+>>> 
+>>> import requests
+>>> r = requests.get(r'http://www.omdbapi.com/?s=batman&apikey=b4e17ea0')
+>>> r.status_code
+200
+>>> r.ok
+True
+>>> r.text[:100]
+'{"Search":[{"Title":"Batman Begins","Year":"2005","imdbID":"tt0372784","Type":"movie","Poster":"http'
+>>> type(r.text)
+<class 'str'>
+>>> import json
+>>> data = json.loads(r.text)
+>>> type(data)
+<class 'dict'>
+>>> data.keys()
+dict_keys(['Search', 'totalResults', 'Response'])
+>>> type(data['Search'])
+<class 'list'>
+>>> len(data['Search'])
+10
+>>> data['Search'][0]
+{'Title': 'Batman Begins', 'Year': '2005', 'imdbID': 'tt0372784', 'Type': 'movie', 'Poster': 'https://m.media-amazon.com/images/M/MV5BZmUwNGU2ZmItMmRiNC00MjhlLTg5YWUtODMyNzkxODYzMmZlXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg'}
+>>> data['Search'][0]['Title']
+'Batman Begins'
+>>> for movie in data['Search']:
+	print(movie['Title'])
+
+	
+Batman Begins
+Batman v Superman: Dawn of Justice
+Batman
+Batman Returns
+Batman Forever
+Batman & Robin
+The Lego Batman Movie
+Batman: The Animated Series
+Batman: Under the Red Hood
+Batman: The Dark Knight Returns, Part 1
+>>> data = r.json()
+>>> r = requests.get(r'http://www.omdbapi.com/?s=spiderman&apikey=b4e17ea0')
+>>> data = r.json()
+>>> for movie in data['Search']:
+	print(movie['Title'])
+
+	
+Italian Spiderman
+Superman, Spiderman or Batman
+Spiderman
+Spiderman
+Fighting, Flying and Driving: The Stunts of Spiderman 3
+Spiderman and Grandma
+The Amazing Spiderman T4 Premiere Special
+Amazing Spiderman Syndrome
+Hollywood's Master Storytellers: Spiderman Live
+Spiderman 5
+>>> 
+>>> 
+>>> 
+>>> import os
+>>> os.getcwd()
+'D:\\sw\\python37'
+>>> os.cpu_count
+<built-in function cpu_count>
+>>> os.cpu_count()
+8
+>>> os.path.exists(r'D:\training\python\sep9-us\progs\posterdownload.py')
+True
+>>> os.path.isfile(r'D:\training\python\sep9-us\progs\posterdownload.py')
+True
+>>> os.mkdir(r'D:\training\python\sep9-us\progs\new')
+>>> os.rmdir(r'D:\training\python\sep9-us\progs\new')
+>>> os.stat(r'D:\training\python\sep9-us\progs\posterdownload.py')
+os.stat_result(st_mode=33206, st_ino=562949953639346, st_dev=3232608701, st_nlink=1, st_uid=0, st_gid=0, st_size=560, st_atime=1568219747, st_mtime=1568219747, st_ctime=1568219210)
+>>> os.path.sep
+'\\'
+>>> 
