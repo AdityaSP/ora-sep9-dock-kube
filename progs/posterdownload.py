@@ -1,6 +1,7 @@
 import requests
 import json
 import os
+from threading import Thread
 
 moviename = input("Enter a movie name: ")
 if os.path.exists(moviename):
@@ -19,6 +20,7 @@ def download(posterurl, loc):
         fh = open( loc ,'wb')
         fh.write(poster.content)
         fh.close()
+    print("Download done for ", posterurl)    
 
 if r.ok:
     data = json.loads(r.text)
@@ -26,4 +28,7 @@ if r.ok:
         print("Downloading poster for ", movie['Title'])
         posterurl = movie['Poster']
         if posterurl != 'N/A':
-            download(posterurl, moviename + os.path.sep +movie['imdbID'] + ".jpg")
+#            download(posterurl, moviename + os.path.sep +movie['imdbID'] + ".jpg")
+             t = Thread(target=download, args=(posterurl, moviename + os.path.sep +movie['imdbID'] + ".jpg"))   
+             t.start()
+             
