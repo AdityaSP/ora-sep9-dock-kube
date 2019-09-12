@@ -1,3 +1,176 @@
 Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license()" for more information.
+>>> import re
+>>> t = 'hello good morning'
+>>> p = 'hello'
+>>> m = re.search(p,t)
+>>> type(m)
+<class 're.Match'>
+>>> m.start(), m.end()
+(0, 5)
+>>> t[m.start(), m.end()]
+Traceback (most recent call last):
+  File "<pyshell#6>", line 1, in <module>
+    t[m.start(), m.end()]
+TypeError: string indices must be integers
+>>> t[m.start():m.end()]
+'hello'
+>>> t = 'hello good morning hello'
+>>> p
+'hello'
+>>> m = re.search(p,t)
+>>> m.start(), m.end()
+(0, 5)
+>>> re.findall(p,t)
+['hello', 'hello']
+>>> for m in re.finditer(p,t):
+	print("found", m.group(), "found at " , m.start(), m.end())
+
+	
+found hello found at  0 5
+found hello found at  19 24
+>>> [ (m.group(), m.start(), m.end())for m in re.finditer(p,t)]
+[('hello', 0, 5), ('hello', 19, 24)]
+>>> 
+>>> 
+>>> 
+>>> 
+>>> t = 'sasasas'
+>>> p = 'sas'
+>>> re.findall(p,t)
+['sas', 'sas']
+>>> [ (m.group(), m.start(), m.end())for m in re.finditer(p,t)]
+[('sas', 0, 3), ('sas', 4, 7)]
+>>> 
+>>> 
+>>> 
+>>> # metacharacters
+>>> 
+>>> t = 'xxyxyyyyxyyyyyyy'
+>>> p = 'xy*'
+>>> #repetition --> xy* --> x followed by 0 to n number of y
+>>> # x, xy , xyy, xyyy,...
+>>> re.findall(p,t)
+['x', 'xy', 'xyyyy', 'xyyyyyyy']
+>>> #* --> greedy
+>>> p = 'xy+'
+>>> #repetition --> xy+ --> x follwed by 1 to n number of y
+>>> re.findall(p,t)
+['xy', 'xyyyy', 'xyyyyyyy']
+>>> p = 'xy?'
+>>> #repetition --> xy? --> x follwed by 0 to 1 number of y
+>>> re.findall(p,t)
+['x', 'xy', 'xy', 'xy']
+>>> 
+>>> 
+>>> #char set
+>>> t = 'Aditya or aditya'
+>>> p = '[Aa]ditya'
+>>> re.findall(p,t)
+['Aditya', 'aditya']
+>>> p = '[Aa]ditya'
+>>> t = 'Aditya or aditya or aaditya'
+>>> p = '[Aa]{1,2}ditya'
+>>> re.findall(p,t)
+['Aditya', 'aditya', 'aaditya']
+>>> t = 'Aditya or aditya or aaditya or aaaditya'
+>>> re.findall(p,t)
+['Aditya', 'aditya', 'aaditya', 'aaditya']
+>>> p = '\b[Aa]{1,2}ditya'
+>>> re.findall(p,t)
+[]
+>>> p = r'\b[Aa]{1,2}ditya'
+>>> re.findall(p,t)
+['Aditya', 'aditya', 'aaditya']
+>>> p = r'\b[Aa]{1,2}ditya\b'
+>>> t = 'Aditya or aditya or aaditya or aaaditya aaaadityaaaa'
+>>> re.findall(p,t)
+['Aditya', 'aditya', 'aaditya']
+>>> t = 'USD 100'
+>>> p = r'[0123465789]+'
+>>> re.findall(p,t)
+['100']
+>>> t = 'USD 1002323'
+>>> p = r'[0123465789]+'
+>>> re.findall(p,t)
+['1002323']
+>>> p=r'[a-zA-z]+'
+>>> re.findall(p,t)
+['USD']
+>>> p = r'[0-9]+'
+>>> re.findall(p,t)
+['1002323']
+>>> 
+>>> 
+>>> 
+>>> t = '10-23-2019'
+>>> t = 'Date: 10-23-2019'
+>>> p = r'\d{2}-\d{2}-\d{4}'
+>>> re.findall(p,t)
+['10-23-2019']
+>>> p = r'(\d{2})-(\d{2})-(\d{4})'
+>>> re.findall(p,t)
+[('10', '23', '2019')]
+>>> m = re.search(p,t)
+>>> m.group()
+'10-23-2019'
+>>> m.group(0)
+'10-23-2019'
+>>> m.group(1)
+'10'
+>>> m.group(2)
+'23'
+>>> m.group(3)
+'2019'
+>>> 
+>>> t = 'Mfg: 01-12-2019 Exp: 10-12-2019'
+>>> p = r'\d{2}-\d{2}-\d{4}'
+>>> re.findall(p,t)
+['01-12-2019', '10-12-2019']
+>>> p = r'Exp: \d{2}-\d{2}-\d{4}'
+>>> re.findall(p,t)
+['Exp: 10-12-2019']
+>>> p = r'Exp: (\d{2}-\d{2}-\d{4})'
+>>> re.findall(p,t)
+['10-12-2019']
+>>> t = 'Date: 10-23-2019'
+>>> p = r'(?P<mon>\d{2})-(?P<day>\d{2})-(?P<year>\d{4})'
+>>> 
+>>> m = re.search(p,t)
+>>> m.group(1), m.group(2), m.group(3)
+('10', '23', '2019')
+>>> m.group('day')
+'23'
+>>> m.group('year')
+'2019'
+>>> 
+>>> 
+>>> 
+>>> t = 'www.google.com'
+>>> t1 = 'http://www.google.com'
+>>> p = r'www|http'
+>>> re.findall(p,t)
+['www']
+>>> re.findall(p,t)
+['www']
+>>> p = r'http|www'
+>>> re.findall(p,t)
+['www']
+>>> re.findall(p,t1)
+['http', 'www']
+>>> t = 'googlewww.com'
+>>> re.findall(p,t)
+['www']
+>>> p = r'^www'
+>>> t
+'googlewww.com'
+>>> re.findall(p,t)
+[]
+>>> t = 'www.google.com'
+>>> re.findall(p,t)
+['www']
+>>> p = 'com$'
+>>> re.findall(p,t)
+['com']
+>>> # anchor tags --> helping us to anchor the pattern to the beginning or ending
 >>> 
