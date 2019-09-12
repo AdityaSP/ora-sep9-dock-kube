@@ -221,3 +221,27 @@ ValueError: do not set km directly
 >>> d.mi, d.km
 (5, 8.0)
 >>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class DH():
+	def __init__(self):
+		self.__hidden=10
+
+		
+>>> dh=DH()
+>>> dh.__hidden
+Traceback (most recent call last):
+  File "<pyshell#118>", line 1, in <module>
+    dh.__hidden
+AttributeError: 'DH' object has no attribute '__hidden'
+>>> dir(dh)
+['_DH__hidden', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
+>>> dh._DH__hidden
+10
+>>> #  __hidden to _DH__hidden --->name mangling
+>>> dir(d)
+['_Distance__km', '_Distance__mi', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'getkm', 'getmi', 'km', 'mi', 'setkm', 'setmi']
+>>> 
