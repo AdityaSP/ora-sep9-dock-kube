@@ -1,0 +1,85 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+
+>>> 
+>>> class A():
+	pass
+
+>>> dir(A)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
+>>> dir(object)
+['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']
+>>> class A(object):
+	pass
+
+>>> dir(A)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
+>>> 
+>>> 
+>>> class Student():
+	def __init__(self, n, i):
+		self.n
+		self.i
+
+		
+>>> st1 = Student('John Doe', 1)
+Traceback (most recent call last):
+  File "<pyshell#17>", line 1, in <module>
+    st1 = Student('John Doe', 1)
+  File "<pyshell#16>", line 3, in __init__
+    self.n
+AttributeError: 'Student' object has no attribute 'n'
+>>> class Student():
+	def __init__(self, n, i):
+		self.n = n
+		self.i = i
+
+		
+>>> st1 = Student('John Doe', 1)
+>>> st2 = Student('John Doe', 1)
+>>> a = 1001
+>>> b = 1001
+>>> st1 == st2
+False
+>>> a == b
+True
+>>> id(st1), id(st2)
+(2953659555720, 2953659485896)
+>>> st3 = st1
+>>> id(st3)
+2953659555720
+>>> st1 == st3
+True
+>>> id(a), id(b)
+(2953658928400, 2953658928624)
+>>> 
+>>> dir(Student)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
+>>> st1 == st2
+False
+>>> Student.__eq__(st1, st2)
+NotImplemented
+>>> class Student():
+	def __init__(self, n, i):
+		self.n = n
+		self.i = i
+	def __eq__(self, other):
+		return self.n == other.n and self.i == other.i
+
+	
+>>> st1 = Student('John Doe', 1)
+>>> st2 = Student('John Doe', 1)
+>>> st1 == st2
+True
+>>> Student.__eq__(st1, st2)
+True
+>>> li = [Student('A', 1), Student('B',2)]
+>>> li
+[<__main__.Student object at 0x000002AFB3BE2B08>, <__main__.Student object at 0x000002AFB3D56B88>]
+>>> li.remove(Student('A',1))
+>>> li
+[<__main__.Student object at 0x000002AFB3D56B88>]
+>>> dir(int)
+['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__gt__', '__hash__', '__index__', '__init__', '__init_subclass__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']
+>>> 
