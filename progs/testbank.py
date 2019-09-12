@@ -17,4 +17,15 @@ class TestBank(unittest.TestCase):
         assert sa.b == 1100, "US103: default bal should be 1100"
 
 unittest.main(verbosity=3)
+#ts = unittest.TestSuite()
+#ts.addTest(TestBank('test_sa_create'))
+#ts.addTest(TestBank('test_sa_credit'))
+#
+#r = unittest.TextTestRunner(verbosity = 3)
+#r.run(ts)
+
+
+
+
+
 
