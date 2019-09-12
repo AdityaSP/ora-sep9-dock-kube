@@ -1,0 +1,9 @@
+Module,testcase,test,run
+testbank,TestBank,test_sa_create,y
+testbank,TestBank,test_ca_create,y
+testbank,TestBank,test_sa_credit,n
+testbank,TestBank,test_ca_credit,y
+testanotherbank,TestBank1,test_sa_create,y
+testanotherbank,TestBank1,test_ca_create,y
+testanotherbank,TestBank1,test_sa_credit,y
+testanotherbank,TestBank1,test_ca_credit,y

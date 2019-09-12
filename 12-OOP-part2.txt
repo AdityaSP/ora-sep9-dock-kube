@@ -245,3 +245,109 @@ AttributeError: 'DH' object has no attribute '__hidden'
 >>> dir(d)
 ['_Distance__km', '_Distance__mi', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'getkm', 'getmi', 'km', 'mi', 'setkm', 'setmi']
 >>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> a = 5 +1
+>>> if a ==6:
+	print("test passed")
+else:
+	print("test failed)
+	      
+SyntaxError: EOL while scanning string literal
+>>> if a ==6:
+	print("test passed")
+else:
+	print("test failed")
+
+	
+test passed
+>>> 
+>>> 
+>>> a = 5+1
+>>> assert a == 6
+>>> assert a == 5
+Traceback (most recent call last):
+  File "<pyshell#140>", line 1, in <module>
+    assert a == 5
+AssertionError
+>>> assert a == 5, "not waht I execpted"
+Traceback (most recent call last):
+  File "<pyshell#141>", line 1, in <module>
+    assert a == 5, "not waht I execpted"
+AssertionError: not waht I execpted
+>>> import unittest
+>>> t = unittest.TestSuite()
+>>> 
+>>> 
+>>> 
+>>> import csv
+>>> fh = open(r'D:\training\python\sep9-us\progs\smoketest.csv')
+>>> for line in csv.DictReader(fh):
+	print(line)
+
+	
+OrderedDict([('Module', 'testbank'), ('testcase', 'TestBank'), ('test', 'test_sa_create'), ('run', 'y')])
+OrderedDict([('Module', 'testbank'), ('testcase', 'TestBank'), ('test', 'test_ca_create'), ('run', 'n')])
+OrderedDict([('Module', 'testbank'), ('testcase', 'TestBank'), ('test', 'test_sa_credit'), ('run', 'y')])
+OrderedDict([('Module', 'testbank'), ('testcase', 'TestBank'), ('test', 'test_ca_credit'), ('run', 'n')])
+>>> for line in csv.DictReader(fh):
+	print("run" , line['test'], "from", line['testcase'])
+
+	
+>>> fh.seek(0)
+0
+>>> 
+>>> for line in csv.DictReader(fh):
+	print("run" , line['test'], "from", line['testcase'])
+
+	
+run test_sa_create from TestBank
+run test_ca_create from TestBank
+run test_sa_credit from TestBank
+run test_ca_credit from TestBank
+>>> for line in csv.DictReader(fh):
+	print("import", line['Module'])
+
+	
+>>> fh.seek(0)
+0
+>>> for line in csv.DictReader(fh):
+	print("import", line['Module'])
+
+	
+import testbank
+import testbank
+import testbank
+import testbank
+>>> a = 10
+>>> 'a = 10'
+'a = 10'
+>>> c = 'a = 10'
+>>> eval(c)
+Traceback (most recent call last):
+  File "<pyshell#166>", line 1, in <module>
+    eval(c)
+  File "<string>", line 1
+    a = 10
+      ^
+SyntaxError: invalid syntax
+>>> exec(c)
+>>> a
+10
+>>> "import {}".format('testbank')
+'import testbank'
+>>> "testbank", "TestBank", "test_sa_create"
+('testbank', 'TestBank', 'test_sa_create')
+>>> 
+>>> "{}.{}('{}')".format("testbank", "TestBank", "test_sa_create")
+"testbank.TestBank('test_sa_create')"
+>>> s = 'hello'
+>>> c = "len(s)"
+>>> exec(c)
+>>> eval(c)
+5
+>>> x = eval(c)
+>>> 

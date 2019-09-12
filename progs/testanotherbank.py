@@ -1,6 +1,6 @@
 import unittest
 import bank
-class TestBank(unittest.TestCase):
+class TestBank1(unittest.TestCase):
     def test_sa_create(self):
         sa = bank.SA('Aditya')
         assert sa.b == 1000, "US101: default bal should be 1000"

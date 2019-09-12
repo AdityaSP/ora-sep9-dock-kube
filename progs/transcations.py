@@ -6,6 +6,9 @@ try:
     sa.debit(2000)
 except bank.InsufficientBalanceError as err:
     print("Please check you balance or try after sometime")
+except Exception as err:
+    print("Transaction failed. Please contact admin")
+
     
 print(sa.n, sa.b)
 
