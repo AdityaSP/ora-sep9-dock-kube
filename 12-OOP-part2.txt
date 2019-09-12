@@ -83,3 +83,141 @@ True
 >>> dir(int)
 ['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__gt__', '__hash__', '__index__', '__init__', '__init_subclass__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']
 >>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> # Data hiding
+>>> 
+>>> 
+>>> 
+>>> class Distance():
+	def __init__(self, mi):
+		self.mi = mi
+		self.km = mi * 1.6
+
+		
+>>> d = Distance(3)
+>>> d.mi
+3
+>>> d.km
+4.800000000000001
+>>> d = Distance(3.1)
+>>> d.mi, d.km
+(3.1, 4.960000000000001)
+>>> d.km = 10
+>>> d.mi, d.km
+(3.1, 10)
+>>> class Distance():
+	def __init__(self, mi):
+		self.mi = mi
+		self.__km = mi * 1.6
+
+		
+>>> d = Distance(3)
+>>> d.mi
+3
+>>> d.km
+Traceback (most recent call last):
+  File "<pyshell#74>", line 1, in <module>
+    d.km
+AttributeError: 'Distance' object has no attribute 'km'
+>>> d.__km
+Traceback (most recent call last):
+  File "<pyshell#75>", line 1, in <module>
+    d.__km
+AttributeError: 'Distance' object has no attribute '__km'
+>>> class Distance():
+	def __init__(self, mi):
+		self.mi = mi
+		self.__km = mi * 1.6
+	def getkm(self):
+		return self.__km
+
+	
+>>> d = Distance(3)
+>>> d.mi
+3
+>>> d.getkm()
+4.800000000000001
+>>> d.__km
+Traceback (most recent call last):
+  File "<pyshell#83>", line 1, in <module>
+    d.__km
+AttributeError: 'Distance' object has no attribute '__km'
+>>> class Distance():
+	def __init__(self, mi):
+		self.mi = mi
+		self.__km = mi * 1.6
+	def getkm(self):
+		return self.__km
+	def setkm(self, v):
+		raise ValueError("do not set km directly")
+
+	
+>>> d = Distance(3)
+>>> d.mi
+3
+>>> d.getkm()
+4.800000000000001
+>>> d.setkm(10)
+Traceback (most recent call last):
+  File "<pyshell#91>", line 1, in <module>
+    d.setkm(10)
+  File "<pyshell#87>", line 8, in setkm
+    raise ValueError("do not set km directly")
+ValueError: do not set km directly
+>>> class Distance():
+	def __init__(self, mi):
+		self.mi = mi
+		self.__km = mi * 1.6
+	def getkm(self):
+		return self.__km
+	def setkm(self, v):
+		raise ValueError("do not set km directly")
+	km = property(getkm, setkm)
+
+	
+>>> d = Distance(3)
+>>> d.mi
+3
+>>> d.km
+4.800000000000001
+>>> d.km = 10
+Traceback (most recent call last):
+  File "<pyshell#98>", line 1, in <module>
+    d.km = 10
+  File "<pyshell#94>", line 8, in setkm
+    raise ValueError("do not set km directly")
+ValueError: do not set km directly
+>>> class Distance():
+	def __init__(self, mi):
+		self.__mi = mi
+		self.__km = mi * 1.6
+	def getmi(self):
+		return self.__mi
+	def setmi(self, v):
+		self.__mi = v
+		self.__km = v * 1.6
+	def getkm(self):
+		return self.__km
+	def setkm(self, v):
+		raise ValueError("do not set km directly")
+	km = property(getkm, setkm)
+	mi = property(getmi, setmi)
+
+	
+>>> d = Distance(3)
+>>> d.mi, d.km
+(3, 4.800000000000001)
+>>> d.km = 10
+Traceback (most recent call last):
+  File "<pyshell#104>", line 1, in <module>
+    d.km = 10
+  File "<pyshell#101>", line 13, in setkm
+    raise ValueError("do not set km directly")
+ValueError: do not set km directly
+>>> d.mi = 5
+>>> d.mi, d.km
+(5, 8.0)
+>>> 
