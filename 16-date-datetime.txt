@@ -1,0 +1,83 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> import datetime
+>>> 
+>>> datetime.date.today()
+datetime.date(2019, 9, 14)
+>>> type(datetime.date.today())
+<class 'datetime.date'>
+>>> d = datetime.date.today()
+>>> d.day, d.month, d.year
+(14, 9, 2019)
+>>> datetime.datetime.now()
+datetime.datetime(2019, 9, 14, 0, 44, 21, 139138)
+>>> dt datetime.datetime.now()
+SyntaxError: invalid syntax
+>>> dt=datetime.datetime.now()
+>>> type(dt)
+<class 'datetime.datetime'>
+>>> dt.day, dt.month, dt.year, dt.hour, dt.minute, dt.second
+(14, 9, 2019, 0, 44, 54)
+>>> datetime.datetime.min
+datetime.datetime(1, 1, 1, 0, 0)
+>>> datetime.datetime.max
+datetime.datetime(9999, 12, 31, 23, 59, 59, 999999)
+>>> issubclass(datetime.datetime, datetime.date)
+True
+>>> 
+>>> dt1 = datetime.datetime(2019, 9, 14)
+>>> dt2 = datetime.datetime(2019, 9, 20)
+>>> diff = dt2 - dt1
+>>> type(diff)
+<class 'datetime.timedelta'>
+>>> diff
+datetime.timedelta(days=6)
+>>> diff.total_seconds()
+518400.0
+>>> diff.total_seconds()/(24*60*60)
+6.0
+>>> dt2
+datetime.datetime(2019, 9, 20, 0, 0)
+>>> delta = datetime.timedelta(seconds=2000)
+>>> dt2
+datetime.datetime(2019, 9, 20, 0, 0)
+>>> dt2 + delta
+datetime.datetime(2019, 9, 20, 0, 33, 20)
+>>> delta = datetime.timedelta(seconds=3600)
+>>> dt2 + delta
+datetime.datetime(2019, 9, 20, 1, 0)
+>>> delta = datetime.timedelta(days=45)
+>>> dt2 + delta
+datetime.datetime(2019, 11, 4, 0, 0)
+>>> datetime.datetime.strftime(dt2)
+Traceback (most recent call last):
+  File "<pyshell#30>", line 1, in <module>
+    datetime.datetime.strftime(dt2)
+TypeError: strftime() missing required argument 'format' (pos 1)
+>>> datetime.datetime.strftime(dt2, '%Y%m%d')
+'20190920'
+>>> datetime.datetime.strftime(dt2, '%y%m%d')
+'190920'
+>>> datetime.datetime.strftime(dt2, '%y%m%d %HH')
+'190920 00H'
+>>> datetime.datetime.strftime(dt2, '%y%m%d %H%M%S')
+'190920 000000'
+>>> datetime.datetime.strftime(datetime.datetime.now(), '%y%m%d %H:%M:%S')
+'190914 00:54:27'
+>>> datetime.datetime.strftime(datetime.datetime.now(), '%y/%m/%d %H:%M:%S')
+'19/09/14 00:54:37'
+>>> datetime.datetime.strptime('19/09/14 00:54:37', '%y/%m/%d %H:%M:%S')
+datetime.datetime(2019, 9, 14, 0, 54, 37)
+>>> 
+>>> 
+>>> import time
+>>> time.time()
+1568402788.051662
+>>> datetime.datetime.fromtimestamp(time.time())
+datetime.datetime(2019, 9, 14, 0, 56, 46, 164556)
+>>> dt1 = datetime.datetime(2019, 9, 14)
+>>> dt1 - datetime.timedelta(days=-3)
+datetime.datetime(2019, 9, 17, 0, 0)
+>>> dt1 + datetime.timedelta(days=-3)
+datetime.datetime(2019, 9, 11, 0, 0)
+>>> 
