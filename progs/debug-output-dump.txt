@@ -1,0 +1,392 @@
+D:\training\python\sep9-us\progs>python debug.py
+> d:\training\python\sep9-us\progs\debug.py(4)<module>()
+-> def f1(arg):
+(Pdb) h
+
+Documented commands (type help <topic>):
+========================================
+EOF    c          d        h         list      q        rv       undisplay
+a      cl         debug    help      ll        quit     s        unt
+alias  clear      disable  ignore    longlist  r        source   until
+args   commands   display  interact  n         restart  step     up
+b      condition  down     j         next      return   tbreak   w
+break  cont       enable   jump      p         retval   u        whatis
+bt     continue   exit     l         pp        run      unalias  where
+
+Miscellaneous help topics:
+==========================
+exec  pdb
+
+(Pdb) n
+> d:\training\python\sep9-us\progs\debug.py(7)<module>()
+-> def f2(arg):
+(Pdb) n
+> d:\training\python\sep9-us\progs\debug.py(11)<module>()
+-> def f3(arg):
+(Pdb) dir()
+['__annotations__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'f1', 'f2', 'pdb']
+(Pdb) n
+> d:\training\python\sep9-us\progs\debug.py(15)<module>()
+-> print("Here")
+(Pdb) list
+ 10
+ 11     def f3(arg):
+ 12         arg = arg + 1
+ 13         return arg
+ 14
+ 15  -> print("Here")
+ 16     print(f1(f2(f3(3))))
+ 17
+ 18
+[EOF]
+(Pdb) n
+Here
+> d:\training\python\sep9-us\progs\debug.py(16)<module>()
+-> print(f1(f2(f3(3))))
+(Pdb) h
+
+Documented commands (type help <topic>):
+========================================
+EOF    c          d        h         list      q        rv       undisplay
+a      cl         debug    help      ll        quit     s        unt
+alias  clear      disable  ignore    longlist  r        source   until
+args   commands   display  interact  n         restart  step     up
+b      condition  down     j         next      return   tbreak   w
+break  cont       enable   jump      p         retval   u        whatis
+bt     continue   exit     l         pp        run      unalias  where
+
+Miscellaneous help topics:
+==========================
+exec  pdb
+
+(Pdb) step
+--Call--
+> d:\training\python\sep9-us\progs\debug.py(11)f3()
+-> def f3(arg):
+(Pdb) n
+> d:\training\python\sep9-us\progs\debug.py(12)f3()
+-> arg = arg + 1
+(Pdb) arg
+3
+(Pdb) n
+> d:\training\python\sep9-us\progs\debug.py(13)f3()
+-> return arg
+(Pdb) arg
+4
+(Pdb) ll
+ 11     def f3(arg):
+ 12         arg = arg + 1
+ 13  ->     return arg
+(Pdb) list
+  8         arg = arg + 1
+  9         return arg
+ 10
+ 11     def f3(arg):
+ 12         arg = arg + 1
+ 13  ->     return arg
+ 14
+ 15     print("Here")
+ 16     print(f1(f2(f3(3))))
+ 17
+ 18
+(Pdb) n
+--Return--
+> d:\training\python\sep9-us\progs\debug.py(13)f3()->4
+-> return arg
+(Pdb) n
+--Call--
+> d:\training\python\sep9-us\progs\debug.py(7)f2()
+-> def f2(arg):
+(Pdb) n
+> d:\training\python\sep9-us\progs\debug.py(8)f2()
+-> arg = arg + 1
+(Pdb) arg
+4
+(Pdb) n
+> d:\training\python\sep9-us\progs\debug.py(9)f2()
+-> return arg
+(Pdb) arg
+5
+(Pdb) n
+--Return--
+> d:\training\python\sep9-us\progs\debug.py(9)f2()->5
+-> return arg
+(Pdb) list
+  4     def f1(arg):
+  5         arg = arg + 1
+  6         return arg
+  7     def f2(arg):
+  8         arg = arg + 1
+  9  ->     return arg
+ 10
+ 11     def f3(arg):
+ 12         arg = arg + 1
+ 13         return arg
+ 14
+(Pdb) n
+--Call--
+> d:\training\python\sep9-us\progs\debug.py(4)f1()
+-> def f1(arg):
+(Pdb) list
+  1     import pdb
+  2     pdb.set_trace()
+  3
+  4  -> def f1(arg):
+  5         arg = arg + 1
+  6         return arg
+  7     def f2(arg):
+  8         arg = arg + 1
+  9         return arg
+ 10
+ 11     def f3(arg):
+(Pdb) list
+ 12         arg = arg + 1
+ 13         return arg
+ 14
+ 15     print("Here")
+ 16     print(f1(f2(f3(3))))
+ 17
+ 18
+[EOF]
+(Pdb) h
+
+Documented commands (type help <topic>):
+========================================
+EOF    c          d        h         list      q        rv       undisplay
+a      cl         debug    help      ll        quit     s        unt
+alias  clear      disable  ignore    longlist  r        source   until
+args   commands   display  interact  n         restart  step     up
+b      condition  down     j         next      return   tbreak   w
+break  cont       enable   jump      p         retval   u        whatis
+bt     continue   exit     l         pp        run      unalias  where
+
+Miscellaneous help topics:
+==========================
+exec  pdb
+
+(Pdb) list
+[EOF]
+(Pdb) n
+> d:\training\python\sep9-us\progs\debug.py(5)f1()
+-> arg = arg + 1
+(Pdb) list
+  1     import pdb
+  2     pdb.set_trace()
+  3
+  4     def f1(arg):
+  5  ->     arg = arg + 1
+  6         return arg
+  7     def f2(arg):
+  8         arg = arg + 1
+  9         return arg
+ 10
+ 11     def f3(arg):
+(Pdb) r
+--Return--
+> d:\training\python\sep9-us\progs\debug.py(6)f1()->6
+-> return arg
+(Pdb) r
+6
+--Return--
+> d:\training\python\sep9-us\progs\debug.py(16)<module>()->None
+-> print(f1(f2(f3(3))))
+(Pdb) n
+
+D:\training\python\sep9-us\progs>
+
+
+D:\training\python\sep9-us\progs>python debug.py
+> d:\training\python\sep9-us\progs\debug.py(4)<module>()
+-> def f1(arg):
+(Pdb) h
+
+Documented commands (type help <topic>):
+========================================
+EOF    c          d        h         list      q        rv       undisplay
+a      cl         debug    help      ll        quit     s        unt
+alias  clear      disable  ignore    longlist  r        source   until
+args   commands   display  interact  n         restart  step     up
+b      condition  down     j         next      return   tbreak   w
+break  cont       enable   jump      p         retval   u        whatis
+bt     continue   exit     l         pp        run      unalias  where
+
+Miscellaneous help topics:
+==========================
+exec  pdb
+
+(Pdb) n
+> d:\training\python\sep9-us\progs\debug.py(7)<module>()
+-> def f2(arg):
+(Pdb) n
+> d:\training\python\sep9-us\progs\debug.py(11)<module>()
+-> def f3(arg):
+(Pdb) dir()
+['__annotations__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'f1', 'f2', 'pdb']
+(Pdb) n
+> d:\training\python\sep9-us\progs\debug.py(15)<module>()
+-> print("Here")
+(Pdb) list
+ 10
+ 11     def f3(arg):
+ 12         arg = arg + 1
+ 13         return arg
+ 14
+ 15  -> print("Here")
+ 16     print(f1(f2(f3(3))))
+ 17
+ 18
+[EOF]
+(Pdb) n
+Here
+> d:\training\python\sep9-us\progs\debug.py(16)<module>()
+-> print(f1(f2(f3(3))))
+(Pdb) h
+
+Documented commands (type help <topic>):
+========================================
+EOF    c          d        h         list      q        rv       undisplay
+a      cl         debug    help      ll        quit     s        unt
+alias  clear      disable  ignore    longlist  r        source   until
+args   commands   display  interact  n         restart  step     up
+b      condition  down     j         next      return   tbreak   w
+break  cont       enable   jump      p         retval   u        whatis
+bt     continue   exit     l         pp        run      unalias  where
+
+Miscellaneous help topics:
+==========================
+exec  pdb
+
+(Pdb) step
+--Call--
+> d:\training\python\sep9-us\progs\debug.py(11)f3()
+-> def f3(arg):
+(Pdb) n
+> d:\training\python\sep9-us\progs\debug.py(12)f3()
+-> arg = arg + 1
+(Pdb) arg
+3
+(Pdb) n
+> d:\training\python\sep9-us\progs\debug.py(13)f3()
+-> return arg
+(Pdb) arg
+4
+(Pdb) ll
+ 11     def f3(arg):
+ 12         arg = arg + 1
+ 13  ->     return arg
+(Pdb) list
+  8         arg = arg + 1
+  9         return arg
+ 10
+ 11     def f3(arg):
+ 12         arg = arg + 1
+ 13  ->     return arg
+ 14
+ 15     print("Here")
+ 16     print(f1(f2(f3(3))))
+ 17
+ 18
+(Pdb) n
+--Return--
+> d:\training\python\sep9-us\progs\debug.py(13)f3()->4
+-> return arg
+(Pdb) n
+--Call--
+> d:\training\python\sep9-us\progs\debug.py(7)f2()
+-> def f2(arg):
+(Pdb) n
+> d:\training\python\sep9-us\progs\debug.py(8)f2()
+-> arg = arg + 1
+(Pdb) arg
+4
+(Pdb) n
+> d:\training\python\sep9-us\progs\debug.py(9)f2()
+-> return arg
+(Pdb) arg
+5
+(Pdb) n
+--Return--
+> d:\training\python\sep9-us\progs\debug.py(9)f2()->5
+-> return arg
+(Pdb) list
+  4     def f1(arg):
+  5         arg = arg + 1
+  6         return arg
+  7     def f2(arg):
+  8         arg = arg + 1
+  9  ->     return arg
+ 10
+ 11     def f3(arg):
+ 12         arg = arg + 1
+ 13         return arg
+ 14
+(Pdb) n
+--Call--
+> d:\training\python\sep9-us\progs\debug.py(4)f1()
+-> def f1(arg):
+(Pdb) list
+  1     import pdb
+  2     pdb.set_trace()
+  3
+  4  -> def f1(arg):
+  5         arg = arg + 1
+  6         return arg
+  7     def f2(arg):
+  8         arg = arg + 1
+  9         return arg
+ 10
+ 11     def f3(arg):
+(Pdb) list
+ 12         arg = arg + 1
+ 13         return arg
+ 14
+ 15     print("Here")
+ 16     print(f1(f2(f3(3))))
+ 17
+ 18
+[EOF]
+(Pdb) h
+
+Documented commands (type help <topic>):
+========================================
+EOF    c          d        h         list      q        rv       undisplay
+a      cl         debug    help      ll        quit     s        unt
+alias  clear      disable  ignore    longlist  r        source   until
+args   commands   display  interact  n         restart  step     up
+b      condition  down     j         next      return   tbreak   w
+break  cont       enable   jump      p         retval   u        whatis
+bt     continue   exit     l         pp        run      unalias  where
+
+Miscellaneous help topics:
+==========================
+exec  pdb
+
+(Pdb) list
+[EOF]
+(Pdb) n
+> d:\training\python\sep9-us\progs\debug.py(5)f1()
+-> arg = arg + 1
+(Pdb) list
+  1     import pdb
+  2     pdb.set_trace()
+  3
+  4     def f1(arg):
+  5  ->     arg = arg + 1
+  6         return arg
+  7     def f2(arg):
+  8         arg = arg + 1
+  9         return arg
+ 10
+ 11     def f3(arg):
+(Pdb) r
+--Return--
+> d:\training\python\sep9-us\progs\debug.py(6)f1()->6
+-> return arg
+(Pdb) r
+6
+--Return--
+> d:\training\python\sep9-us\progs\debug.py(16)<module>()->None
+-> print(f1(f2(f3(3))))
+(Pdb) n
+
+D:\training\python\sep9-us\progs>
