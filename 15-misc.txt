@@ -124,3 +124,88 @@ AttributeError: 'function' object has no attribute '__next__'
 >>> x.__next__()
 'somename_1568387239.8880005.txt'
 >>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> a =set()
+>>> a
+set()
+>>> a.add(12)
+>>> a
+{12}
+>>> a.add(14)
+>>> a
+{12, 14}
+>>> a.add(12)
+>>> a
+{12, 14}
+>>> a = {45,67,45,67,23}
+>>> type(a)
+<class 'set'>
+>>> a
+{67, 45, 23}
+>>> 
+>>> 
+>>> line = 'one two three one four two'
+>>> line.split()
+['one', 'two', 'three', 'one', 'four', 'two']
+>>> li
+Traceback (most recent call last):
+  File "<pyshell#76>", line 1, in <module>
+    li
+NameError: name 'li' is not defined
+>>> li = line.split()
+>>> li
+['one', 'two', 'three', 'one', 'four', 'two']
+>>> se = set(li)
+>>> se
+{'three', 'four', 'two', 'one'}
+>>> len(se)
+4
+>>>  list(se)
+ 
+SyntaxError: unexpected indent
+>>> list(se)
+['three', 'four', 'two', 'one']
+>>> list(se).sort()
+>>> x = list(se)
+>>> x.sort()
+>>> x
+['four', 'one', 'three', 'two']
+>>> a = set('letters')
+>>> 
+>>> a
+{'r', 's', 'e', 't', 'l'}
+>>> b = set('postbox')
+>>> b
+{'s', 'x', 't', 'o', 'p', 'b'}
+>>> a & b
+{'s', 't'}
+>>> a | b
+{'r', 's', 'e', 'x', 't', 'l', 'o', 'p', 'b'}
+>>> a - b
+{'r', 'l', 'e'}
+>>> b - a
+{'o', 'b', 'x', 'p'}
+>>> a ^ b
+{'r', 'e', 'x', 'l', 'o', 'p', 'b'}
+>>> se.pop()
+'three'
+>>> se
+{'four', 'two', 'one'}
+>>> se.pop()
+'four'
+>>> se
+{'two', 'one'}
+>>> se.pop()
+'two'
+>>> se.pop()
+'one'
+>>> se.pop()
+Traceback (most recent call last):
+  File "<pyshell#104>", line 1, in <module>
+    se.pop()
+KeyError: 'pop from an empty set'
+>>> 
