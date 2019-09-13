@@ -1,0 +1,81 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+import sqlite3
+>>> conn = sqlite3.connect(r'D:\training\python\sep9-us\users.db')
+>>> conn
+<sqlite3.Connection object at 0x000002B006FD0730>
+>>> cur = conn.cursor()
+>>> cur
+<sqlite3.Cursor object at 0x000002B006FB8EA0>
+>>> ct = '''CREATE TABLE `User` ( `name` TEXT, `salary` REAL );'''
+>>> cur(ct)
+Traceback (most recent call last):
+  File "<pyshell#6>", line 1, in <module>
+    cur(ct)
+TypeError: 'sqlite3.Cursor' object is not callable
+>>> cur.execute(ct)
+<sqlite3.Cursor object at 0x000002B006FB8EA0>
+>>> ins = '''INSERT INTO `User`(`name`,`salary`) VALUES ('Aditya',10000000.00);'''
+>>> cur.execute(ins)
+<sqlite3.Cursor object at 0x000002B006FB8EA0>
+>>> conn.commit()
+>>> conn.close()
+>>> 
+>>> 
+>>> conn = sqlite3.connect(r'D:\training\python\sep9-us\users.db')
+>>> cur = conn.cursor()
+>>> cur.execute('select * from user')
+<sqlite3.Cursor object at 0x000002B007004F80>
+>>> cur.fetchall()
+[('Aditya', 10000000.0)]
+>>> ins = '''INSERT INTO `User`(`name`,`salary`) VALUES ('Arun',10000.00);'''
+>>> cur.execut(ins)
+Traceback (most recent call last):
+  File "<pyshell#19>", line 1, in <module>
+    cur.execut(ins)
+AttributeError: 'sqlite3.Cursor' object has no attribute 'execut'
+>>> cur.execute(ins)
+<sqlite3.Cursor object at 0x000002B007004F80>
+>>> conn.commit()
+>>> cur.execute('select * from user')
+<sqlite3.Cursor object at 0x000002B007004F80>
+>>> cur.fetchall()
+[('Aditya', 10000000.0), ('Arun', 10000.0)]
+>>> for n,s in cur.fetchall():
+	print(n, 'get', s)
+
+	
+>>> cur.execute('select * from user')
+<sqlite3.Cursor object at 0x000002B007004F80>
+>>> for n,s in cur.fetchall():
+	print(n, 'get', s)
+
+	
+Aditya get 10000000.0
+Arun get 10000.0
+>>> cur.execute('select * from user where name=?', ('Aditya',))
+<sqlite3.Cursor object at 0x000002B007004F80>
+>>> cur.fetchall()
+[('Aditya', 10000000.0)]
+>>> ins = '''INSERT INTO `User`(`name`,`salary`) VALUES (?,?);'''
+>>> userdate = [('user1',182973), ('user2', 209845), ('user3', 234083)]
+>>> cur.executemany(ins, userdate)
+<sqlite3.Cursor object at 0x000002B007004F80>
+>>> conn.commit()
+>>> cur.execute('select * from user where name=?', ('user3',))
+<sqlite3.Cursor object at 0x000002B007004F80>
+>>> cur.fetchall()
+[('user3', 234083.0)]
+>>> for n,s in cur.execute('select * from user'):
+	print(n , 'gets', s)
+
+	
+Aditya gets 10000000.0
+Arun gets 10000.0
+user1 gets 182973.0
+user2 gets 209845.0
+user3 gets 234083.0
+>>> cur.close()
+>>> conn.close()
+>>> 
